@@ -34,8 +34,8 @@ class Post(models.Model):
     # body = models.TextField()
     body = MDTextField()
 
-    created_time = models.DateTimeField()
-    modified_time = models.DateTimeField()
+    created_time = models.DateTimeField(auto_now_add=True)
+    modified_time = models.DateTimeField(auto_now=True)
 
     # excerpt = models.CharField(max_length=200, blank=True)
 

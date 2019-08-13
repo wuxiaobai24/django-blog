@@ -17,14 +17,12 @@ from .models import Category, Tag, Post
 class PostAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['title', 'author', ]}),
-        ('Date information', {'fields': [
-            'created_time', 'modified_time']}),
         ('Content', {'fields': ['body']}),
         ('Category', {'fields': ['category']}),
         ('Tags', {'fields': ['tags']}),
     ]
     # inlines = [CategoryInline, TagInline]
-    list_display = ('title', 'created_time')
+    list_display = ('title', 'category','created_time')
     list_filter = ['tags', 'category', 'created_time']
     search_fields = ['title']
 
