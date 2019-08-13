@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # 'markdown_deux', 
     'mdeditor',
-    'polls.apps.PollsConfig',
+    
     'blog.apps.BlogConfig',
     'django.contrib.admin',
     'django.contrib.auth',

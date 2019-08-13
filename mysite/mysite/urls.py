@@ -20,7 +20,6 @@ from django.conf import settings
 
 urlpatterns = [
     path('blog/', include('blog.urls')),
-    path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
     path('mdeditor/', include('mdeditor.urls')),
 ]
