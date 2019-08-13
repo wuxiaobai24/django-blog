@@ -1,0 +1,29 @@
+{% load static %}
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  {% if title %}
+  <title>Code &amp; Fun -- {{ title }}</title>
+  {% else %}
+  <title>Code &amp; Fun</title>
+  {% endif %}
+  
+  <link href="{% static 'blog/css/style.css' %}" rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="{% static 'blog/css/bulma.min.css' %}"
+  />
+  <link href="{% static 'blog/css/bulma-timeline.min.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/css/bulma-badge.min.css' %}" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Pacifico&display=swap"
+    rel="stylesheet"
+  />
+  <link href="{% static 'blog/css/github.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/css/typo.css' %}" rel="stylesheet">
+  <script
+    defer
+    src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+  ></script>
+  <script src="{% static 'blog/js/highlight.pack.js' %}"></script>
+</head>

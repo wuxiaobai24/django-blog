@@ -1,0 +1,64 @@
+{% extends "blog/base.html" %} 
+{% block content %} 
+{% for post in post_list %}
+<div class="box">
+  <div class="content">
+    <!-- header -->
+    <a href="{% url 'blog:post' post.id %}"><h2>{{ post.title }}</h2></a>
+    
+
+    <div class="level">
+      <div class="level-left">
+        <span class="level-item is-mobile">
+          <span class="icon"><i class="far fa-clock"></i></span>
+          <p>{{ post.created_time }}</p>
+        </span>
+
+        <span class="level-item">
+          <span class="icon"><i class="far fa-eye"></i></span>
+          <p>{{ post.clicks }}</p>
+        </span>
+        
+        <a class="level-item tags has-addons" href="{% url 'blog:category' post.category.id %}">
+          <span class="tag">{{ post.category.name }}</span>
+          <span class="tag is-primary">{{ post.category.get_count }}</span>
+        </a>
+      </div>
+      <div class="level-right">
+        <!-- tags -->
+
+        <div class="tags">
+          {% for tag in post.tags.all %}
+          <span class="tag level-item">
+            
+            <a href="{% url 'blog:tag' tag.id %}">
+              <span class="icon"><i class="fas fa-tag"></i></span>
+              &nbsp;{{ tag.name }}
+            </a>
+          </span>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+<!-- pagination -->
+<nav class="pagination is-rounded" role="pagination">
+  {% if post_list.has_previous %}
+  <a
+    class="pagination-previous"
+    href="?page={{ post_list.previous_page_numer }}"
+  >
+    Previous
+  </a>
+  {% endif %} 
+  {% if post_list.has_next %}
+  <a class="pagination-next" href="?page={{ post_list.next_page_number }}">
+    Next Page
+  </a>
+  {% endif %}
+</nav>
+
+{% endblock content %}

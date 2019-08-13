@@ -1,0 +1,41 @@
+{% extends "blog/base.html" %} {% block content %}
+<div class="box">
+  <div>
+    <h1 class="title has-text-centered">{{ post.title }}</h1>
+    <div class="level">
+      <div class="level-left">
+        <span class="level-item is-mobile">
+          <span class="icon"><i class="far fa-clock"></i></span>
+          <p>{{ post.created_time }}</p>
+        </span>
+        <span class="level-item">
+          <span class="icon"><i class="far fa-eye"></i></span>
+          <p>{{ post.clicks }}</p>
+        </span>
+        <a class="level-item tags has-addons" href="#">
+          <span class="tag">{{ post.category.name }}</span>
+          <span class="tag is-primary">{{ post.category.get_count }}</span>
+        </a>
+      </div>
+      <div class="level-right">
+        <!-- tags -->
+        <div class="tags">
+          {% for tag in post.tags.all %}
+          <span class="tag level-item">
+            <a href="/tag/{{ tag.name }}">
+              <span class="icon"><i class="fas fa-tag"></i></span>
+              &nbsp;{{ tag.name }}
+            </a>
+          </span>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="box">
+  <div class="content typo">
+    {{ post.body | safe }}
+  </div>
+</div>
+{% endblock content %}

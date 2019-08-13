@@ -1,0 +1,48 @@
+<!-- navbar -->
+<header
+  class="navbar is-fixed-top"
+  role="navigation"
+  aria-label="main navigation"
+>
+  <div class="navbar-brand">
+    <a class="navbar-item" href="{% url 'blog:index' %}">
+      <p style="font-family: 'Pacifico', cursive">Code &amp; Fun</p>
+    </a>
+
+    <a
+      role="button"
+      class="navbar-burger burger"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="navbarBasic"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasic" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="{% url 'blog:index' %}"
+        ><span class="icon"><i class="fas fa-home"></i></span>&nbsp;Home</a
+      >
+      <a class="navbar-item" href="{% url 'blog:archives' %}"
+        ><span class="icon"><i class="fas fa-archive"></i></span
+        >&nbsp;Archives</a
+      >
+      <!-- <a class="navbar-item" href="{% url 'blog:index' %}"
+        ><span class="icon"><i class="fa fa-th-large"></i></span
+        >&nbsp;Categories</a
+      > -->
+      <!-- <a class="navbar-item"
+        ><span class="icon"><i class="fa fa-tags"></i></span>&nbsp;Tags</a
+      > -->
+      <a class="navbar-item" href="{% url 'blog:index' %}"
+        ><span class="icon"><i class="fas fa-user"></i></span>&nbsp;About Me</a
+      >
+    </div>
+  </div>
+</header>

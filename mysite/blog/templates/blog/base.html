@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+  <!-- header -->
+  {% include "blog/_header.html" %}
+  <body>
+    <!-- navbar -->
+    
+    {% include "blog/_navbar.html" %}
+    <!-- hero -->
+    {% if hero %}
+    {% include "blog/_hero.html" %}  
+    {% endif %}
+
+    <!-- main -->
+    <section class="section">
+      <div class="container is-fullhd">
+        <div class="columns">
+          <!-- main content -->
+          <div class="column is-8">
+            <!-- notification -->
+            {% if message %}
+            <div class="notification">
+              <button class="delete"></button>
+              <p>{{ message }}</p>
+            </div>
+            {% endif %}
+
+            <!-- main content -->
+            {% block content %} {% endblock content %}
+          </div>
+
+          <!-- aside -->
+          <aside class="column is-4 is-narrow">
+            <!-- Category -->
+            {% include "blog/_categories.html" with categories=categories %}
+            <!-- Tags -->
+            {% include "blog/_tags.html" with tags=tags %}
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    {% include "blog/_footer.html" %}
+  </body>
+
+  <!-- for navbar -->
+  <script src="{% static 'blog/js/main.js' %}"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</html>

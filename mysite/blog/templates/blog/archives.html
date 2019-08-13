@@ -1,0 +1,35 @@
+{% extends "blog/base.html" %} 
+{% block content %}
+
+<div class="box">
+  <!-- timeline -->
+  <div class="timeline is-centered">
+    {% for post in post_list %}
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <div class="heading">{{ post.created_time }}</div>
+        <a href="{% url 'blog:post' post.id %}">{{ post.title }}</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- pagination -->
+<nav class="pagination is-rounded" role="pagination">
+  {% if post_list.has_previous %}
+  <a
+    class="pagination-previous"
+    href="?page={{ post_list.previous_page_numer }}"
+  >
+    Previous
+  </a>
+  {% endif %} {% if post_list.has_next %}
+  <a class="pagination-next" href="?page={{ post_list.next_page_number }}">
+    Next Page
+  </a>
+  {% endif %}
+</nav>
+
+{% endblock content %}

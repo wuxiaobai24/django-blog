@@ -1,0 +1,22 @@
+<div class="card mr-1">
+  <header class="card-header">
+    <div class="card-header-title">
+      <p>
+        <span class="icon"><i class="fas fa-th-large"></i></span>
+        Categories
+      </p>
+    </div>
+  </header>
+  <div class="card-content is-paddingless">
+    <div class="panel">
+      {% for category in categories %}
+
+      <!--  -->
+      <a class="panel-block" href="{% url 'blog:category' category.id %}">
+        {{ category.name }}&nbsp;
+        <span class="tag is-rounded">{{ category.get_count }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
