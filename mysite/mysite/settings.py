@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY', default='c(%opkt2_wh+0ss6m0rl9aw@__2zfbw=dcc^og68)j=d)8w2fq')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = False if os.environ.get('DEBUG') in ['True', 'true', 'TRUE'] else False
 
 ALLOWED_HOSTS = [os.environ.get('HOST_IP', default='127.0.0.1')]
 
@@ -76,13 +76,24 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if DEBUG == True:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ.get('DB_NAME', default='blog'),
+            'USER': os.environ.get('DB_USER', default='user'),
+            'PASSWORD': os.environ.get('DB_PASSWORD', default='password'),
+            'HOST': os.environ.get('DB_HOST', default='127.0.0.1'),
+            'PORT': '3306',
+        }
+    }
 
 
 # Password validation
@@ -122,7 +133,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # for mdeditor
