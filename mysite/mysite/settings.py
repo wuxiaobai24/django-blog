@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='c(%opkt2_wh+0ss6m0rl9aw@__2zf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [os.environ.get('HOST', default='127.0.0.1')]
+ALLOWED_HOSTS = [os.environ.get('HOST_IP', default='127.0.0.1')]
 
 
 # Application definition

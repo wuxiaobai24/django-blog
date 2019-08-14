@@ -46,7 +46,7 @@ python mysite/manage.py runserver
 1. 设置环境变量
 
    - `SECRET_KEY`：秘钥
-   - `HOST`：IP地址
+   - `HOST_IP`：IP地址
 
    **在`mysite/mysite/settings.py`中直接修改也可以**
 

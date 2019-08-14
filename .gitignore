@@ -4,4 +4,9 @@
 # vscode
 .vscode
 
+# django staticfiles
 mysite/staticfiles
+
+__pycache__
+
+venv
