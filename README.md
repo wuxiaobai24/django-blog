@@ -47,6 +47,10 @@ python mysite/manage.py runserver
 
    - `SECRET_KEY`：秘钥
    - `HOST_IP`：IP地址
+   - `DB_NAME`:数据库用户名
+   - `DB_PASSWORD`:数据库密码
+   - `DB_HOST`:数据库IP，默认为`127.0.0.1`
+   - `DEBUG`:设置为`True`，则进行Debug模式，默认为`False`
 
    **在`mysite/mysite/settings.py`中直接修改也可以**
 
@@ -183,6 +187,16 @@ sudo systemctl restart nginx
 
 12 directories, 43 files
 ```
+
+## 注意事项
+
+- 在使用`MySQL`需要一个叫`mysqlclient`的`Python`包，可以安装失败，出现`OSError: mysql_config not found`类似的错误，这时需要先安装一个驱动，如Ubuntu中是：
+
+```bash
+sudo apt-get install libmysqlclient-dev
+```
+
+- `MySQL`需要先通过命令行在`MySQL`中建立好数据库先，无法想sqlite一样自动建立数据库。
 
 ## License
 
