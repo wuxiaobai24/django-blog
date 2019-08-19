@@ -26,6 +26,7 @@ wrapt = "==1.11.2"
 yapf = "==0.28.0"
 uwsgi = "*"
 mysqlclient = "*"
+python-frontmatter = "*"
 
 [requires]
 python_version = "3.5"
