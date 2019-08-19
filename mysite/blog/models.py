@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from mdeditor.fields import MDTextField
+from django.utils import timezone
 # Create your models here.
 
 
@@ -34,7 +35,7 @@ class Post(models.Model):
     # body = models.TextField()
     body = MDTextField()
 
-    created_time = models.DateTimeField(auto_now_add=True)
+    created_time = models.DateTimeField(default=timezone.now)
     modified_time = models.DateTimeField(auto_now=True)
 
     # excerpt = models.CharField(max_length=200, blank=True)
