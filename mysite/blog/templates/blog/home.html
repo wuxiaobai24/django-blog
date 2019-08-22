@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+  <!-- header -->
+  {% include "blog/_header.html" %}
+  <body>
+    <!-- navbar -->
+    
+    {% include "blog/_navbar.html" %}
+    <!-- hero -->
+    <!-- hero -->
+	<section class="hero is-fullheight-with-navbar">
+		<div class="hero-body">
+		<div class="container">
+			<p class="title has-text-centered">
+			Keep It Simple, Stupid.
+			</p>
+			<div class="title has-text-centered">
+				<span class="icon is-large">
+					<a href="https://github.com/wuxiaobai24">
+					<i class="fab fa-github"></i>
+					</a>
+				</span>
+				<span class="icon is-large">
+					<a href="wuxiaobai24:wuxiaobai24@foxmail.com">
+					<i class="far fa-envelope"></i>
+					</a>
+				</span>
+				<span class="icon is-large">
+					<a href="https://wuxiaobai24.github.io">
+					<i class="far fa-paper-plane"></i>
+					</a>
+				</span>
+			</div>
+		</div>
+		</div>
+	</section>
+
+    <!-- main -->
+
+    <!-- footer -->
+    {% include "blog/_footer.html" %}
+  </body>
+
+  <!-- for navbar -->
+  <script src="{% static 'blog/js/main.js' %}"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</html>

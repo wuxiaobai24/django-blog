@@ -7,14 +7,20 @@ from .models import Category, Tag, Post
 import markdown
 # Create your views here.
 
+page_count = 5
+timeline_count = 15
 def get_tags():
     return Tag.objects.all();
 
 def get_categories():
     return Category.objects.all();
 
+def home(request):
+    context = {}
+    return render(request, 'blog/home.html', context=context)
+
 def index(request):
-    paginator = Paginator(Post.objects.all().order_by('-created_time'), 3)
+    paginator = Paginator(Post.objects.all().order_by('-created_time'), page_count)
 
     page = request.GET.get('page')
     try:
@@ -25,8 +31,6 @@ def index(request):
         post_list = paginator.page(paginator.num_pages)
 
     context = {
-        'hero': True,
-        
         'post_list': post_list,
         'tags': get_tags(),
         'categories': get_categories(),
@@ -56,7 +60,7 @@ def post(request, id):
 
 def tag(request, id):
     tag = get_object_or_404(Tag, pk=id)
-    paginator = Paginator(tag.get_posts().order_by('-created_time'), 3)
+    paginator = Paginator(tag.get_posts().order_by('-created_time'), page_count)
 
     page = request.GET.get('page')
     try:
@@ -98,7 +102,7 @@ def category(request, id):
 
 
 def archives(request):
-    paginator = Paginator(Post.objects.all().order_by('-created_time'), 10)
+    paginator = Paginator(Post.objects.all().order_by('-created_time'), timeline_count)
 
     page = request.GET.get('page')
     try:
