@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY', default='c(%opkt2_wh+0ss6m0rl9aw@__2zfbw=dcc^og68)j=d)8w2fq')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False if os.environ.get('DEBUG') in ['True', 'true', 'TRUE'] else False
+DEBUG = True if os.environ.get('DEBUG') in ['True', 'true', 'TRUE'] else False
 
 ALLOWED_HOSTS = [os.environ.get('HOST_IP', default='127.0.0.1')]
 
